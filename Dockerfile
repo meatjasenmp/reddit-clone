@@ -2,8 +2,8 @@ FROM oven/bun:alpine
 
 WORKDIR /app
 
-COPY ../package.json ./
-COPY ../bun.lockb ./
+COPY package.json ./
+COPY bun.lockb ./
 
 RUN bun install
 

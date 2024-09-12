@@ -2,8 +2,8 @@ services:
   next-app:
     container_name: next-app
     build:
-      context: ..
-      dockerfile: ./docker/dev.Dockerfile
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/app/next-app
     restart: always
