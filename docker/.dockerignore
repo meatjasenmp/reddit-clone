@@ -32,7 +32,7 @@ yarn-error.log*
 *.tsbuildinfo
 
 # jetbrains
-.idea
+../.idea
 
 # readme
 README.md
