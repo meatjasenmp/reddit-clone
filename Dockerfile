@@ -1,6 +1,6 @@
 FROM oven/bun:alpine
 
-WORKDIR /app
+WORKDIR /src
 
 COPY package.json ./
 COPY bun.lockb ./
