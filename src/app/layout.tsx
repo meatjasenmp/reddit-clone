@@ -1,8 +1,13 @@
 import React from "react";
 import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
 
 import "./globals.css";
 
+const roboto = Roboto({
+  weight: "300",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Jasen's Reddit Clone",
@@ -16,8 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="test">
-        {children}
+      <body>
+        <main className={roboto.className}>{children}</main>
       </body>
     </html>
   );
