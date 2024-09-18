@@ -1,15 +1,20 @@
+export interface RedditPost {
+  subreddit: string;
+  title: string;
+  score: number;
+  upvote_ratio: number;
+  id: string;
+}
+
+export interface RedditPostChildren {
+  kind: string;
+  data: RedditPost;
+}
+
 export interface RedditPostData {
   kind: string;
   data: {
-    children: {
-      kind: string;
-      data: {
-        subreddit: string;
-        title: string;
-        score: number;
-        upvote_ratio: number;
-      };
-    }[];
+    children: RedditPostChildren[];
   };
 }
 

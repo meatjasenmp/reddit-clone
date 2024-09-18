@@ -1,13 +1,16 @@
+import { fetchReddit } from "@/app/api/helpers";
+import Post from "@/app/components/Post";
+
 export const revalidate = 3600;
 
-function DefaultPost({ post }: { post: any }) {
-  if (post) console.info(post);
-  return <div>Loading...</div>;
-}
-
 export default async function Home() {
-  const data = await fetch(process.env.API_URL!);
-  const posts = await data.json();
+  const posts = await fetchReddit();
 
-  return <DefaultPost post={posts} />;
+  return (
+    <>
+      {posts.data.children.map((post) => (
+        <Post key={post.data.id} post={post.data} />
+      ))}
+    </>
+  );
 }
