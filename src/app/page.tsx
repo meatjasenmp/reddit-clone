@@ -1,7 +1,7 @@
 export const revalidate = 3600;
 
-function DefaultPost({post}:{post: any}) {
-  if(post) console.info(post);
+function DefaultPost({ post }: { post: any }) {
+  if (post) console.info(post);
   return <div>Loading...</div>;
 }
 
