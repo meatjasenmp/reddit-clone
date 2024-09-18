@@ -1,9 +1,37 @@
+export interface RedditImage {
+  images: [
+    {
+      source: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      resolutions: [
+        {
+          url: string;
+          width: number;
+          height: number;
+        },
+      ];
+      id: string;
+    },
+  ];
+}
+
+export interface RedditPreview {
+  preview: {
+    images: RedditImage[];
+  };
+}
+
 export interface RedditPost {
   subreddit: string;
   title: string;
   score: number;
   upvote_ratio: number;
   id: string;
+  preview: RedditPreview;
+  is_video: boolean;
 }
 
 export interface RedditPostChildren {
