@@ -28,7 +28,14 @@ export interface RedditPost {
   subreddit: string;
   title: string;
   score: number;
-  upvote_ratio: number;
+  ups: number;
+  created: number;
+  created_utc: number;
+  author: string;
+  permalink: string;
+  thumbnail: string;
+  subreddit_name_prefixed: string;
+  downs: number;
   id: string;
   preview: RedditPreview;
   is_video: boolean;

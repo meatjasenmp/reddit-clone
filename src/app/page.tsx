@@ -1,4 +1,4 @@
-import { fetchReddit } from "@/app/api/helpers";
+import { fetchReddit } from "@/app/api/requests";
 import Post from "@/app/components/Post";
 import { RedditPostData } from "@/app/api/types";
 
