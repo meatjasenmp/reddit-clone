@@ -1,3 +1,34 @@
+export interface MediaMetadata {
+  [id: string]: {
+    status: string;
+    e: string;
+    m: string;
+    p: [
+      {
+        y: number;
+        x: number;
+        u: string;
+      },
+    ];
+    s: {
+      y: number;
+      x: number;
+      u: string;
+    };
+    id: string;
+  };
+}
+
+export interface GalleryData {
+  [items: string]: [
+    {
+      caption: string;
+      media_id: string;
+      id: string;
+    },
+  ];
+}
+
 export interface RedditImage {
   images: [
     {
@@ -39,6 +70,9 @@ export interface RedditPost {
   id: string;
   preview: RedditPreview;
   is_video: boolean;
+  is_gallery: boolean;
+  media_metadata: MediaMetadata;
+  gallery_data: GalleryData;
 }
 
 export interface RedditPostChildren {
