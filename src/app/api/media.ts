@@ -22,7 +22,7 @@ export function handleGallery(post: RedditPost) {
   return imageUrls;
 }
 
-export function getPostMedia(post: RedditPost) {
+export function getPostMediaType(post: RedditPost) {
   if (post.post_hint === POST_HINTS.IMAGE) return POST_HINTS.IMAGE;
   if (post.post_hint === POST_HINTS.VIDEO) return POST_HINTS.VIDEO;
   if (post.post_hint === POST_HINTS.RICH_VIDEO) return POST_HINTS.RICH_VIDEO;
