@@ -1,8 +1,13 @@
 import { RedditPost } from "@/app/api/types";
 
-export function handleGallery(post: RedditPost) {
-  if (!post.gallery_data) return;
+enum POST_HINTS {
+  VIDEO = "hosted:video",
+  RICH_VIDEO = "rich:video",
+  IMAGE = "image",
+  LINK = "link",
+}
 
+export function handleGallery(post: RedditPost) {
   const imageUrls: string[] = [];
   const galleryData = post.gallery_data;
   const mediaMetadata = post.media_metadata;
@@ -19,10 +24,14 @@ export function handleGallery(post: RedditPost) {
 
 export function handleVideo(post: RedditPost) {}
 
-export function handleImage(post: RedditPost) {}
+export function handleImage(post: RedditPost) {
+  if (post.is_gallery) return handleGallery(post);
+}
 
 export function handleLink(post: RedditPost) {}
 
 export function handlePostMedia(post: RedditPost) {
-  if (post.is_gallery) return handleGallery(post);
+  if (post.post_hint === POST_HINTS.IMAGE) return handleImage(post);
+  if (post.post_hint === POST_HINTS.VIDEO) return handleVideo(post);
+  if (post.post_hint === POST_HINTS.LINK) return handleLink(post);
 }
