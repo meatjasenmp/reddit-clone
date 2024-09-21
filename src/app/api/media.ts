@@ -1,4 +1,4 @@
-import { RedditPost, MediaMetadata, GalleryData } from "@/app/api/types";
+import { RedditPost } from "@/app/api/types";
 
 export function handleGallery(post: RedditPost) {
   if (!post.gallery_data) return;
@@ -13,6 +13,8 @@ export function handleGallery(post: RedditPost) {
     const url = metadata.s.u;
     imageUrls.push(url);
   }
+
+  return imageUrls;
 }
 
 export function handleVideo(post: RedditPost) {}
