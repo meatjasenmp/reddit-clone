@@ -1,7 +1,11 @@
 import Media from "@/app/components/Media";
 import { RedditPost } from "@/app/api/types";
 
-export default function Post({ post }: { post: RedditPost }) {
+export interface PostProps {
+  post: RedditPost;
+}
+
+export default function Post({ post }: PostProps) {
   return (
     <article className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow text-black mb-4 last:mb-0">
       <header className="px-4 py-5 sm:px-6">

@@ -1,21 +1,17 @@
-import { RedditPost } from "@/app/api/types";
+import { PostProps } from "@/app/components/Post";
 import ImageComponent from "@/app/components/Image";
 import { getPostMediaType, POST_HINTS } from "@/app/api/media";
-
-interface MediaProps {
-  post: RedditPost;
-}
 
 interface MediaComponentProps {
   type: POST_HINTS | null;
 }
 
-function MediaComponent({ type, post }: MediaProps & MediaComponentProps) {
-  if (type === POST_HINTS.IMAGE) return <ImageComponent />;
+function MediaComponent({ type, post }: PostProps & MediaComponentProps) {
+  if (type === POST_HINTS.IMAGE) return <ImageComponent post={post} />;
   return <></>;
 }
 
-export default function Media({ post }: MediaProps) {
+export default function Media({ post }: PostProps) {
   const type = getPostMediaType(post);
   return <MediaComponent type={type} post={post} />;
 }
