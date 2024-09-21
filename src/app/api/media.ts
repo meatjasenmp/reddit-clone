@@ -1,6 +1,6 @@
 import { RedditPost } from "@/app/api/types";
 
-enum POST_HINTS {
+export enum POST_HINTS {
   VIDEO = "hosted:video",
   RICH_VIDEO = "rich:video",
   IMAGE = "image",
@@ -22,16 +22,12 @@ export function handleGallery(post: RedditPost) {
   return imageUrls;
 }
 
-export function handleVideo(post: RedditPost) {}
+export function getPostMedia(post: RedditPost) {
+  if (post.post_hint === POST_HINTS.IMAGE) return POST_HINTS.IMAGE;
+  if (post.post_hint === POST_HINTS.VIDEO) return POST_HINTS.VIDEO;
+  if (post.post_hint === POST_HINTS.RICH_VIDEO) return POST_HINTS.RICH_VIDEO;
+  if (post.post_hint === POST_HINTS.LINK) return POST_HINTS.LINK;
 
-export function handleImage(post: RedditPost) {
-  if (post.is_gallery) return handleGallery(post);
-}
-
-export function handleLink(post: RedditPost) {}
-
-export function handlePostMedia(post: RedditPost) {
-  if (post.post_hint === POST_HINTS.IMAGE) return handleImage(post);
-  if (post.post_hint === POST_HINTS.VIDEO) return handleVideo(post);
-  if (post.post_hint === POST_HINTS.LINK) return handleLink(post);
+  console.warn("Unknown post hint:", post.post_hint);
+  return null;
 }
