@@ -1,6 +1,6 @@
 import { PostProps } from "@/app/components/Post";
-import ImageComponent from "@/app/components/Image";
 import { getPostMediaType, POST_HINTS } from "@/app/api/media";
+import ImageComponent from "@/app/components/Image";
 
 interface MediaComponentProps {
   type: POST_HINTS | null;
@@ -8,6 +8,7 @@ interface MediaComponentProps {
 
 function MediaComponent({ type, post }: PostProps & MediaComponentProps) {
   if (type === POST_HINTS.IMAGE) return <ImageComponent post={post} />;
+
   return <></>;
 }
 
