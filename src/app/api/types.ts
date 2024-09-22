@@ -70,9 +70,9 @@ export interface RedditPost {
   id: string;
   preview: RedditPreview;
   is_video: boolean;
-  is_gallery: boolean;
-  media_metadata: MediaMetadata;
-  gallery_data: GalleryData;
+  is_gallery?: boolean;
+  media_metadata?: MediaMetadata;
+  gallery_data?: GalleryData;
   post_hint: string;
 }
 
