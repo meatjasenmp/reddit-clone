@@ -9,7 +9,7 @@ interface MediaComponentProps {
 
 function MediaComponent({ type, post }: PostProps & MediaComponentProps) {
   if (type === POST_HINTS.IMAGE) {
-    if (post.is_gallery) return <ImageGallery post={post} />;
+    if (post?.is_gallery) return <ImageGallery post={post} />;
     return <ImageComponent post={post} />;
   }
 

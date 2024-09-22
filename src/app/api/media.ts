@@ -9,8 +9,8 @@ export enum POST_HINTS {
 
 export function handleGallery(post: RedditPost) {
   const imageUrls: string[] = [];
-  const galleryData = post.gallery_data;
-  const mediaMetadata = post.media_metadata;
+  const galleryData = post?.gallery_data;
+  const mediaMetadata = post?.media_metadata;
 
   if (galleryData && mediaMetadata) {
     for (const item of galleryData.items) {
