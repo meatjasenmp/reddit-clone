@@ -68,7 +68,7 @@ export interface RedditPost {
   subreddit_name_prefixed: string;
   downs: number;
   id: string;
-  preview: RedditPreview;
+  preview?: RedditPreview;
   is_video: boolean;
   is_gallery?: boolean;
   media_metadata?: MediaMetadata;
