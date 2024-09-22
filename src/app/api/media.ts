@@ -7,7 +7,7 @@ export enum POST_HINTS {
   LINK = "link",
 }
 
-export function handleGallery(post: RedditPost) {
+export function handleImageGallery(post: RedditPost) {
   const imageUrls: string[] = [];
   const galleryData = post?.gallery_data;
   const mediaMetadata = post?.media_metadata;
