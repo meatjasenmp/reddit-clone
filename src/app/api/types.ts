@@ -49,7 +49,7 @@ export interface RedditImage {
   ];
 }
 
-export interface RedditPreview {
+export interface ImagePreview {
   preview: {
     images: RedditImage[];
   };
@@ -68,7 +68,7 @@ export interface RedditPost {
   subreddit_name_prefixed: string;
   downs: number;
   id: string;
-  preview?: RedditPreview;
+  preview?: ImagePreview;
   is_video: boolean;
   is_gallery?: boolean;
   media_metadata?: MediaMetadata;
