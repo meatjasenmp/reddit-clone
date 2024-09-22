@@ -12,13 +12,13 @@ export function handleGallery(post: RedditPost) {
   const galleryData = post.gallery_data;
   const mediaMetadata = post.media_metadata;
 
-  if (!galleryData || !mediaMetadata) return imageUrls;
-
-  for (const item of galleryData.items) {
-    const mediaId = item.media_id;
-    const metadata = mediaMetadata[mediaId];
-    const url = metadata.s.u;
-    imageUrls.push(url);
+  if (galleryData && mediaMetadata) {
+    for (const item of galleryData.items) {
+      const mediaId = item.media_id;
+      const metadata = mediaMetadata[mediaId];
+      const url = metadata.s.u;
+      imageUrls.push(url);
+    }
   }
 
   return imageUrls;
