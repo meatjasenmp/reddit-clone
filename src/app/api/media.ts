@@ -14,8 +14,7 @@ export function handleImageGallery(post: RedditPost) {
 
   if (galleryData && mediaMetadata) {
     for (const item of galleryData.items) {
-      const mediaId = item.media_id;
-      const metadata = mediaMetadata[mediaId];
+      const metadata = mediaMetadata[item.media_id];
       const url = metadata.s.u;
       imageUrls.push(url);
     }
