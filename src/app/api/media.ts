@@ -5,6 +5,7 @@ export enum POST_HINTS {
   RICH_VIDEO = "rich:video",
   IMAGE = "image",
   LINK = "link",
+  SELF = "self",
 }
 
 export function handleImageGallery(post: RedditPost) {
@@ -33,10 +34,13 @@ export function handleImagePreview(post: RedditPost) {
 }
 
 export function getPostMediaType(post: RedditPost) {
+  if (!post?.post_hint) return;
+
   if (post.post_hint === POST_HINTS.IMAGE) return POST_HINTS.IMAGE;
   if (post.post_hint === POST_HINTS.VIDEO) return POST_HINTS.VIDEO;
   if (post.post_hint === POST_HINTS.RICH_VIDEO) return POST_HINTS.RICH_VIDEO;
   if (post.post_hint === POST_HINTS.LINK) return POST_HINTS.LINK;
+  if (post.post_hint === POST_HINTS.SELF) return POST_HINTS.SELF;
 
   console.warn("Unknown post hint:", post.post_hint);
   return null;

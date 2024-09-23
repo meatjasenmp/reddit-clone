@@ -67,7 +67,7 @@ export interface RedditPost {
   is_gallery?: boolean;
   media_metadata?: MediaMetadata;
   gallery_data?: GalleryData;
-  post_hint: string;
+  post_hint?: string;
 }
 
 export interface RedditPostChildren {
