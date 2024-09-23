@@ -24,8 +24,12 @@ export function handleImageGallery(post: RedditPost) {
 }
 
 export function handleImagePreview(post: RedditPost) {
-  if (!post?.preview) return [];
-  return post.preview.images;
+  const { preview } = post;
+  return {
+    url: preview?.images[0].source.url || "",
+    width: preview?.images[0].source.width || 0,
+    height: preview?.images[0].source.height || 0,
+  };
 }
 
 export function getPostMediaType(post: RedditPost) {
