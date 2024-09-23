@@ -25,7 +25,7 @@ export function handleImageGallery(post: RedditPost) {
 
 export function handleImagePreview(post: RedditPost) {
   if (!post?.preview) return [];
-  return post.preview.images.map((image) => image);
+  return post.preview.images;
 }
 
 export function getPostMediaType(post: RedditPost) {
