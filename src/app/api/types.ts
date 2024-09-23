@@ -30,29 +30,23 @@ export interface GalleryData {
 }
 
 export interface RedditImage {
-  images: [
+  source: {
+    url: string;
+    width: number;
+    height: number;
+  };
+  resolutions: [
     {
-      source: {
-        url: string;
-        width: number;
-        height: number;
-      };
-      resolutions: [
-        {
-          url: string;
-          width: number;
-          height: number;
-        },
-      ];
-      id: string;
+      url: string;
+      width: number;
+      height: number;
     },
   ];
+  id: string;
 }
 
 export interface ImagePreview {
-  preview: {
-    images: RedditImage[];
-  };
+  images: RedditImage[];
 }
 
 export interface RedditPost {

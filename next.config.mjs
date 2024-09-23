@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "b.thumbs.redditmedia.com",
+        hostname: "preview.redd.it",
       },
     ],
   },

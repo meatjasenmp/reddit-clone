@@ -2,8 +2,6 @@ import { fetchReddit } from "@/app/api/requests";
 import Post from "@/app/components/Post";
 import { RedditPostData } from "@/app/api/types";
 
-export const revalidate = 3600;
-
 export default async function Home() {
   const posts: RedditPostData = await fetchReddit();
 

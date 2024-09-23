@@ -23,6 +23,11 @@ export function handleImageGallery(post: RedditPost) {
   return imageUrls;
 }
 
+export function handleImagePreview(post: RedditPost) {
+  if (!post?.preview) return [];
+  return post.preview.images.map((image) => image);
+}
+
 export function getPostMediaType(post: RedditPost) {
   if (post.post_hint === POST_HINTS.IMAGE) return POST_HINTS.IMAGE;
   if (post.post_hint === POST_HINTS.VIDEO) return POST_HINTS.VIDEO;
