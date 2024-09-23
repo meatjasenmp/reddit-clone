@@ -4,7 +4,7 @@ import ImageComponent from "@/app/components/Image";
 import ImageGallery from "@/app/components/ImageGallery";
 
 interface MediaComponentProps {
-  type: POST_HINTS | null;
+  type: POST_HINTS | null | undefined;
 }
 
 function MediaComponent({ type, post }: PostProps & MediaComponentProps) {
