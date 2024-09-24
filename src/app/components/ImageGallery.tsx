@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { PostProps } from "@/app/components/Post";
 import { handleImageGallery } from "@/app/api/media";
-import Image from "next/image";
 
 export default function ImageGallery({ post }: PostProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,15 +32,15 @@ export default function ImageGallery({ post }: PostProps) {
 
   function slideStyles(isActive: boolean): string {
     const isVisible = isActive ? "opacity-100" : "opacity-0";
-    return `w-full h-full bg-cover ${isVisible}`;
+    return `w-full h-full  bg-cover ${isVisible}`;
   }
 
   return (
-    <section className="relative w-full overflow-hidden h-96">
+    <section className="relative w-full h-96 overflow-hidden">
       {images.map((image, index) => (
         <div
           key={index}
-          className={slideStyles(index === currentIndex)}
+          className={slideStyles(index === currentIndex, image)}
           style={{ backgroundImage: `url(${image.url})` }}
         />
       ))}
