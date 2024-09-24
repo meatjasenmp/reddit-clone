@@ -12,16 +12,19 @@ export default function ImageGallery({ post }: PostProps) {
       url: "https://sneakernews.com/wp-content/uploads/2008/01/air-jordan-1.jpg",
       width: 600,
       height: 400,
+      title: "Air Jordan 1",
     },
     {
       url: "https://sneakernews.com/wp-content/uploads/2008/01/air-jordan-1.jpg",
       width: 600,
       height: 400,
+      title: "Air Jordan 1",
     },
     {
       url: "https://sneakernews.com/wp-content/uploads/2008/01/air-jordan-1.jpg",
       width: 600,
       height: 400,
+      title: "Air Jordan 1",
     },
   ];
 
@@ -51,6 +54,7 @@ export default function ImageGallery({ post }: PostProps) {
           key={index}
           className={slideStyles(index === currentIndex)}
           style={{ backgroundImage: `url(${image.url})` }}
+          title={image.title}
         />
       ))}
     </section>
