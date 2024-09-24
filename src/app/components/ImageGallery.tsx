@@ -31,12 +31,19 @@ export default function ImageGallery({ post }: PostProps) {
     setCurrentIndex(nextIndex);
   }
 
+  function slideStyles(isActive: boolean): string {
+    const isVisible = isActive ? "opacity-100" : "opacity-0";
+    return `w-full h-full bg-cover ${isVisible}`;
+  }
+
   return (
-    <section className="image-gallery">
+    <section className="relative w-full overflow-hidden h-96">
       {images.map((image, index) => (
-        <div key={index} className={`slide ${index === currentIndex ? "active" : ""}`}>
-          <Image src={image.url} width={image.width} height={image.height} alt="Placeholder" />
-        </div>
+        <div
+          key={index}
+          className={slideStyles(index === currentIndex)}
+          style={{ backgroundImage: `url(${image.url})` }}
+        />
       ))}
     </section>
   );
