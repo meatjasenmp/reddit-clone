@@ -8,23 +8,32 @@ export enum POST_HINTS {
   SELF = "self",
 }
 
+export interface Image {
+  url: string;
+  width: number;
+  height: number;
+}
+
 export function handleImageGallery(post: RedditPost) {
-  const imageUrls: string[] = [];
+  const images: Image[] = [];
   const galleryData = post?.gallery_data;
   const mediaMetadata = post?.media_metadata;
 
   if (galleryData && mediaMetadata) {
     for (const item of galleryData.items) {
       const metadata = mediaMetadata[item.media_id];
-      const url = metadata.s.u;
-      imageUrls.push(url);
+      images.push({
+        url: metadata.s.u,
+        width: metadata.s.x,
+        height: metadata.s.y,
+      });
     }
   }
 
-  return imageUrls;
+  return images;
 }
 
-export function handleImagePreview(post: RedditPost) {
+export function handleImagePreview(post: RedditPost): Image {
   const { preview } = post;
   return {
     url: preview?.images[0].source.url || "",
