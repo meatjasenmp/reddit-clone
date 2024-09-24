@@ -55,6 +55,7 @@ export default function ImageGallery({ post }: PostProps) {
           className={slideStyles(index === currentIndex)}
           style={{ backgroundImage: `url(${image.url})` }}
           title={image.title}
+          aria-label={image.title}
         />
       ))}
     </section>
