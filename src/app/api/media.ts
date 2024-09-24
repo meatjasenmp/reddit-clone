@@ -14,7 +14,7 @@ export interface Image {
   height: number;
 }
 
-export function handleImageGallery(post: RedditPost) {
+export function handleImageGallery(post: RedditPost): Image[] {
   const images: Image[] = [];
   const galleryData = post?.gallery_data;
   const mediaMetadata = post?.media_metadata;
