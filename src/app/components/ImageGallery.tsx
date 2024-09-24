@@ -40,7 +40,7 @@ export default function ImageGallery({ post }: PostProps) {
       {images.map((image, index) => (
         <div
           key={index}
-          className={slideStyles(index === currentIndex, image)}
+          className={slideStyles(index === currentIndex)}
           style={{ backgroundImage: `url(${image.url})` }}
         />
       ))}
