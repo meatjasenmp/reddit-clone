@@ -26,8 +26,17 @@ export default function ImageGallery({ post }: PostProps) {
   ];
 
   function goToNextSlide() {
+    if (images.length - 1 === currentIndex) return;
+
     const nextIndex = (currentIndex + 1) % images.length;
     setCurrentIndex(nextIndex);
+  }
+
+  function goToPrevSlide() {
+    if (currentIndex === 0) return;
+
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    setCurrentIndex(prevIndex);
   }
 
   function slideStyles(isActive: boolean): string {
