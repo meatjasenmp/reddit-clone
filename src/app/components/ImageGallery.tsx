@@ -32,7 +32,7 @@ export default function ImageGallery({ post }: PostProps) {
 
   function slideStyles(isActive: boolean): string {
     const isVisible = isActive ? "opacity-100" : "opacity-0";
-    return `w-full h-full  bg-cover ${isVisible}`;
+    return `w-full h-full absolute top-0 left-0 bg-cover ${isVisible}`;
   }
 
   return (
