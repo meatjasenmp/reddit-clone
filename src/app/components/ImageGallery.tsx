@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { PostProps } from "@/app/components/Post";
 import { handleImageGallery } from "@/app/api/media";
+import Button from "@/app/components/Button";
 
 export default function ImageGallery({ post }: PostProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -47,10 +48,6 @@ export default function ImageGallery({ post }: PostProps) {
     return `w-full h-full absolute top-0 left-0 bg-cover ${isVisible}`;
   }
 
-  function buttonStyles() {
-    return "relative first:mr-2 z-20 rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50";
-  }
-
   return (
     <section className="relative w-full h-96 overflow-hidden">
       {images.map((image, index) => (
@@ -63,12 +60,8 @@ export default function ImageGallery({ post }: PostProps) {
         />
       ))}
       <div className="mt-4 ml-4">
-        <button className={buttonStyles()} onClick={goToPreviousSlide}>
-          Previous
-        </button>
-        <button className={buttonStyles()} onClick={goToNextSlide}>
-          Next
-        </button>
+        <Button onClick={goToPreviousSlide}>Previous</Button>
+        <Button onClick={goToNextSlide}>Next</Button>
       </div>
     </section>
   );
