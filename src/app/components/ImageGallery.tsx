@@ -4,10 +4,25 @@ import { useState } from "react";
 import { PostProps } from "@/app/components/Post";
 import { handleImageGallery } from "@/app/api/media";
 import Button from "@/app/components/Button";
+import { parseStyles } from "@/app/helpers/styles";
+
+function slideStyles(isActive: boolean): string {
+  const styles = {
+    position: "absolute top-0 left-0",
+    appearance: `w-full h-full bg-cover ${isActive ? "opacity-100" : "opacity-0"}`,
+  };
+  return parseStyles(styles);
+}
+
+const slideContainerStyles = {
+  position: "relative",
+  appearance: "w-full h-96",
+};
 
 export default function ImageGallery({ post }: PostProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   // const images = handleImageGallery(post);
+
   const images = [
     {
       url: "https://sneakernews.com/wp-content/uploads/2008/01/air-jordan-1.jpg",
@@ -43,13 +58,8 @@ export default function ImageGallery({ post }: PostProps) {
     setCurrentIndex(prevIndex);
   }
 
-  function slideStyles(isActive: boolean): string {
-    const isVisible = isActive ? "opacity-100" : "opacity-0";
-    return `w-full h-full absolute top-0 left-0 bg-cover ${isVisible}`;
-  }
-
   return (
-    <section className="relative w-full h-96 overflow-hidden">
+    <section className={parseStyles(slideContainerStyles)}>
       {images.map((image, index) => (
         <div
           key={index}
