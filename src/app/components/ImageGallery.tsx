@@ -35,7 +35,7 @@ export default function ImageGallery({ post }: PostProps) {
     setCurrentIndex(nextIndex);
   }
 
-  function goToPrevSlide() {
+  function goToPreviousSlide() {
     if (currentIndex === 0) return;
 
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
@@ -45,6 +45,10 @@ export default function ImageGallery({ post }: PostProps) {
   function slideStyles(isActive: boolean): string {
     const isVisible = isActive ? "opacity-100" : "opacity-0";
     return `w-full h-full absolute top-0 left-0 bg-cover ${isVisible}`;
+  }
+
+  function buttonStyles() {
+    return "relative first:mr-2 z-20 rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50";
   }
 
   return (
@@ -58,6 +62,14 @@ export default function ImageGallery({ post }: PostProps) {
           aria-label={image.title}
         />
       ))}
+      <div className="mt-4 ml-4">
+        <button className={buttonStyles()} onClick={goToPreviousSlide}>
+          Previous
+        </button>
+        <button className={buttonStyles()} onClick={goToNextSlide}>
+          Next
+        </button>
+      </div>
     </section>
   );
 }
