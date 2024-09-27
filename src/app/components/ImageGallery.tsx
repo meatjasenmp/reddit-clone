@@ -21,28 +21,7 @@ const slideContainerStyles = {
 
 export default function ImageGallery({ post }: PostProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  // const images = handleImageGallery(post);
-
-  const images = [
-    {
-      url: "https://sneakernews.com/wp-content/uploads/2008/01/air-jordan-1.jpg",
-      width: 600,
-      height: 400,
-      title: "Air Jordan 1",
-    },
-    {
-      url: "https://sneakernews.com/wp-content/uploads/2008/01/air-jordan-1.jpg",
-      width: 600,
-      height: 400,
-      title: "Air Jordan 1",
-    },
-    {
-      url: "https://sneakernews.com/wp-content/uploads/2008/01/air-jordan-1.jpg",
-      width: 600,
-      height: 400,
-      title: "Air Jordan 1",
-    },
-  ];
+  const images = handleImageGallery(post);
 
   function goToNextSlide() {
     if (images.length - 1 === currentIndex) return;
@@ -65,8 +44,8 @@ export default function ImageGallery({ post }: PostProps) {
           key={index}
           className={slideStyles(index === currentIndex)}
           style={{ backgroundImage: `url(${image.url})` }}
-          title={image.title}
-          aria-label={image.title}
+          title={post.title}
+          aria-label={post.title}
         />
       ))}
       <div className="mt-4 ml-4">

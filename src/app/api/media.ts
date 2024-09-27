@@ -42,6 +42,10 @@ export function handleImagePreview(post: RedditPost): Image {
   };
 }
 
+export function handleVideo(post: RedditPost) {}
+
+export function handleRichVideo(post: RedditPost) {}
+
 export function getPostMediaType(post: RedditPost) {
   if (!post?.post_hint) return;
 
