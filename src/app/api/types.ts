@@ -49,6 +49,22 @@ export interface ImagePreview {
   images: RedditImage[];
 }
 
+export interface SecureMedia {
+  reddit_video: {
+    fallback_url: string;
+    bitrate_kbps: number;
+    has_audio: boolean;
+    height: number;
+    width: number;
+    scrubber_media_url: string;
+    dash_url: string;
+    duration: number;
+    hls_url: string;
+    is_gif: boolean;
+    transcoding_status: string;
+  };
+}
+
 export interface RedditPost {
   subreddit: string;
   title: string;
@@ -68,6 +84,7 @@ export interface RedditPost {
   media_metadata?: MediaMetadata;
   gallery_data?: GalleryData;
   post_hint?: string;
+  secure_media: SecureMedia | null;
 }
 
 export interface RedditPostChildren {

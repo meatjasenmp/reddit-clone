@@ -8,14 +8,23 @@ export enum POST_HINTS {
   SELF = "self",
 }
 
-export interface Image {
+export interface ImageType {
   url: string;
   width: number;
   height: number;
 }
 
-export function handleImageGallery(post: RedditPost): Image[] {
-  const images: Image[] = [];
+export interface VideoType {
+  thumbnail: string;
+  video: {
+    url: string;
+    width: number;
+    height: number;
+  };
+}
+
+export function handleImageGallery(post: RedditPost): ImageType[] {
+  const images: ImageType[] = [];
   const galleryData = post?.gallery_data;
   const mediaMetadata = post?.media_metadata;
 
@@ -33,7 +42,7 @@ export function handleImageGallery(post: RedditPost): Image[] {
   return images;
 }
 
-export function handleImagePreview(post: RedditPost): Image {
+export function handleImagePreview(post: RedditPost): ImageType {
   const { preview } = post;
   return {
     url: preview?.images[0].source.url || "",
@@ -42,7 +51,18 @@ export function handleImagePreview(post: RedditPost): Image {
   };
 }
 
-export function handleVideo(post: RedditPost) {}
+export function handleVideo(post: RedditPost): VideoType {
+  const { preview, secure_media } = post;
+
+  return {
+    thumbnail: preview?.images[0].source.url || "",
+    video: {
+      url: secure_media?.reddit_video?.fallback_url || "",
+      width: secure_media?.reddit_video?.width || 0,
+      height: secure_media?.reddit_video?.height || 0,
+    },
+  };
+}
 
 export function handleRichVideo(post: RedditPost) {}
 
