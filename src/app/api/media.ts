@@ -15,9 +15,11 @@ export interface ImageType {
 }
 
 export interface VideoType {
-  thumbnail: string;
+  poster_url: string;
   video: {
     url: string;
+    hls_url: string;
+    dash_url: string;
     width: number;
     height: number;
   };
@@ -55,9 +57,11 @@ export function handleVideo(post: RedditPost): VideoType {
   const { preview, secure_media } = post;
 
   return {
-    thumbnail: preview?.images[0].source.url || "",
+    poster_url: preview?.images[0].source.url || "",
     video: {
       url: secure_media?.reddit_video?.fallback_url || "",
+      hls_url: secure_media?.reddit_video?.hls_url || "",
+      dash_url: secure_media?.reddit_video?.dash_url || "",
       width: secure_media?.reddit_video?.width || 0,
       height: secure_media?.reddit_video?.height || 0,
     },

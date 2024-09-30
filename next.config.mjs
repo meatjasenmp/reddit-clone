@@ -9,7 +9,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "sneakernews.com",
+        hostname: "v.redd.it",
       },
     ],
   },
